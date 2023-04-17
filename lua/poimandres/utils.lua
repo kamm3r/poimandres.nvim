@@ -8,11 +8,9 @@ end
 local function rgb(color)
     color = vim.api.nvim_get_color_by_name(color)
 
-
     if color == -1 then
         color = vim.opt.background:get() == 'dark' and 000 or 255255255
     end
-
 
     return { byte(color, 16), byte(color, 8), byte(color, 0) }
 end
@@ -45,11 +43,16 @@ utils.blend = function(foreground, background, alpha)
         return math.floor(math.min(math.max(0, ret), 255) + 0.5)
     end
 
-    return string.format('#%02X%02X%02X', blend_channel(1), blend_channel(2), blend_channel(3))
+    return string.format(
+        '#%02X%02X%02X',
+        blend_channel(1),
+        blend_channel(2),
+        blend_channel(3)
+    )
 end
 
 ---@param group string
----@param color table<string, string>
+---@param color table<string, any>
 utils.highlight = function(group, color)
     local fg = color.fg and parse_color(color.fg) or 'none'
     local bg = color.bg and parse_color(color.bg) or 'none'
@@ -68,4 +71,3 @@ utils.highlight = function(group, color)
 end
 
 return utils
-

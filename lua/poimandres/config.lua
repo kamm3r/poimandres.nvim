@@ -20,6 +20,7 @@ local defaults = {
     ---@type 'auto' | Variant
     variant = 'auto',
     bold_vert_split = false,
+    ---@type Variant
     dark_variant = 'main',
     disable_background = false,
     disable_float_background = false,
