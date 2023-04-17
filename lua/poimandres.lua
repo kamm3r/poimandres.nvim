@@ -1,4 +1,4 @@
-local config = require('poimanders.config')
+local config = require('poimandres.config')
 local M = {}
 
 ---@param options Config|nil
