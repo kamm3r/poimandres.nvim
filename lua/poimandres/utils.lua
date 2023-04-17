@@ -63,7 +63,7 @@ utils.highlight = function(group, color)
         and (color.blend >= 0 or color.blend <= 100)
         and bg ~= nil
     then
-        bg = utils.blend(bg, parse_color('base') or '', color.blend / 100)
+        bg = utils.blend(bg, parse_color('background3') or '', color.blend / 100)
     end
 
     color = vim.tbl_extend('force', color, { fg = fg, bg = bg, sp = sp })
