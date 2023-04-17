@@ -57,5 +57,5 @@ if options.variant == 'storm' then
 	return variants.storm
 end
 
-return vim.o.background == 'light' and variants.dawn
+return vim.o.background == 'light' and variants.storm
 	or variants[options.dark_variant or 'main']
