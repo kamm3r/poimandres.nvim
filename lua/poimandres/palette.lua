@@ -50,12 +50,8 @@ local variants = {
 }
 
 
-if options.variant == 'main' then
-	return variants.main
-end
-if options.variant == 'storm' then
-	return variants.storm
-end
+local palette = {}
 
-return vim.o.background == 'light' and variants.storm
-	or variants[options.dark_variant or 'main']
+palette = variants.main
+
+return palette
