@@ -90,7 +90,7 @@ function M._load(options)
 	-- default,
 	-- Uncomment and edit if you want more specific syntax highlighting.
 
-	--h('Bold', { bold = true})
+	h('Bold', { bold = true})
 	h('Boolean', { fg = p.teal1 })         --  a boolean constant: TRUE, false
 	h('Character', { fg = p.pink3 })       --  a character constant: 'c', '\n'
 	h('Comment', { fg = p.blueGray1 })     -- (preferred) any special symbol
@@ -108,7 +108,7 @@ function M._load(options)
 	h('Include', { fg = p.blueGray1 })   --  preprocessor #include
 	h('Keyword', { fg = p.blue3 })       --  any other keyword
 	h('Label', { fg = p.text })          --    case, default, etc.
-	-- h('Italic', { italic = true })
+	h('Italic', { italic = true })
 	-- h('Macro',         = { }) --    same as Define
 	h('Number', { fg = p.teal1 })                    --   a number constant: 234, 0xff
 	h('Operator', { fg = p.blue2 })                  -- "sizeof", "+", "*", etc.
@@ -121,7 +121,7 @@ function M._load(options)
 	h('Statement', { fg = p.text })                  -- (preferred) any statement
 	-- h('StorageClass', { }) -- static, register, volatile, etc.
 	h('String', { fg = p.teal1 })                    --   a string constant: "this is a string"
-	--h('Structure', { fg = p.blueGray1 }) --  struct, union, enum, etc. ]]
+	h('Structure', { fg = p.blueGray1 }) --  struct, union, enum, etc. ]]
 	h('Tag', { fg = p.text })                        --    you can use CTRL-] on this
 	h('Todo', { bg = p.yellow, fg = p.background3 }) -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 	h('Type', { fg = p.blueGray1 })                  -- (preferred) int, long, char, etc.
@@ -188,7 +188,7 @@ function M._load(options)
 	h('@boolean', { link = 'Boolean' })
 	h('@character', { link = 'Character' })
 	h('@character.special', { link = '@character' })
-	-- h('@class', { fg = p.foam })
+	h('@class', { fg = p.blue2  })
 	h('@comment', { link = 'Comment' })
 	h('@conditional', { link = 'Conditional' })
 	h('@constant', { link = 'Constant' })
