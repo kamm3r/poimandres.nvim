@@ -24,7 +24,6 @@ local function parse_color(color)
 
     if not color:find('#') and color ~= 'none' then
         color = require('poimandres.palette')[color]
-
             or vim.api.nvim_get_color_by_name(color)
     end
 
@@ -63,7 +62,7 @@ utils.highlight = function(group, color)
         and (color.blend >= 0 or color.blend <= 100)
         and bg ~= nil
     then
-        bg = utils.blend(bg, parse_color('background3') or '', color.blend / 100)
+        bg = utils.blend(bg, parse_color('bg') or '', color.blend / 100)
     end
 
     color = vim.tbl_extend('force', color, { fg = fg, bg = bg, sp = sp })

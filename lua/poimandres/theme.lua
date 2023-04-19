@@ -17,71 +17,71 @@ function M._load(options)
 		) or styles.background
 
 
-	h('ColorColumn', { bg = p.blueGray1 })
+	h('ColorColumn', { bg = p.gray })
 	h('Conceal', { bg = p.none })
 	h('CurSearch', { link = 'IncSearch' })
-	-- h('Cursor', {})
-	h('CursorColumn', { bg = p.background1 })
+	h('Cursor', { fg = p.gray})
+	h('CursorColumn', { bg = p.focus })
 	-- h('CursorIM', {})
-	h('CursorLine', { bg = p.background1 })
+	h('CursorLine', { bg = p.focus })
 	h('CursorLineNr', { fg = p.text })
 	h('DarkenedPanel', { bg = groups.panel })
 	h('DarkenedStatusline', { bg = groups.panel })
 
 	h('DiffAdd', { bg = groups.git_add, blend = 50 })
-	h('DiffChange', { bg = p.blueGray1 })
+	h('DiffChange', { bg = p.gray })
 	h('DiffDelete', { bg = groups.git_delete, blend = 50 })
 	h('DiffText', { bg = groups.git_text, blend = 50 })
 	h('diffAdded', { link = 'DiffAdd' })
 	h('diffChanged', { link = 'DiffChange' })
 	h('diffRemoved', { link = 'DiffDelete' })
-	h('Directory', { fg = p.blue3, bg = p.none })
+	h('Directory', { fg = p.desaturatedBlue, bg = p.none })
 	-- h('EndOfBuffer', {})
-	h('ErrorMsg', { fg = p.pink3, bold = true })
+	h('ErrorMsg', { fg = p.hotRed, bold = true })
 	h('FloatBorder', { fg = groups.border })
-	h('FloatTitle', { fg = p.blueGray2 })
-	h('FoldColumn', { fg = p.blueGray2 })
+	h('FloatTitle', { fg = p.darkerGray })
+	h('FoldColumn', { fg = p.darkerGray })
 	h('Folded', { fg = p.text, bg = groups.panel })
-	h('IncSearch', { fg = p.background3, bg = p.blue2 })
-	h('LineNr', { fg = p.blueGray3 })
-	h('MatchParen', { bg = p.blueGray3, fg = p.background3 })
-	h('ModeMsg', { fg = p.blue3 })
-	h('MoreMsg', { fg = p.blue3 })
-	h('NonText', { fg = p.blue4 })
+	h('IncSearch', { fg = p.background3, bg = p.lightBlue })
+	h('LineNr', { fg = p.bluishGray })
+	h('MatchParen', { bg = p.bluishGray, fg = p.background3 })
+	h('ModeMsg', { fg = p.desaturatedBlue })
+	h('MoreMsg', { fg = p.desaturatedBlue })
+	h('NonText', { fg = p.bluishGrayBrighter })
 	h('Normal', { fg = p.text, bg = styles.background })
 	h('NormalFloat', { fg = p.text, bg = styles.float_background })
 	h('NormalNC', { fg = p.text, bg = styles.dim_nc_background })
-	h('NvimInternalError', { fg = '#ffffff', bg = p.pink3 })
-	h('Pmenu', { fg = p.blueGray1, bg = styles.float_background })
-	h('PmenuSbar', { bg = p.blueGray2 })
-	h('PmenuSel', { fg = p.text, bg = p.background1 })
-	h('PmenuThumb', { bg = p.blueGray3 })
-	h('Question', { fg = p.yellow })
+	h('NvimInternalError', { fg = '#ffffff', bg = p.hotRed })
+	h('Pmenu', { fg = p.gray, bg = styles.float_background })
+	h('PmenuSbar', { bg = p.darkerGray })
+	h('PmenuSel', { fg = p.text, bg = p.focus })
+	h('PmenuThumb', { bg = p.bluishGray })
+	h('Question', { fg = p.brightYellow })
 	-- h('QuickFixLine', {})
 	-- h('RedrawDebugNormal', {})
-	h('RedrawDebugClear', { fg = '#ffffff', bg = p.yellow })
-	h('RedrawDebugComposed', { fg = '#ffffff', bg = p.teal2 })
-	h('RedrawDebugRecompose', { fg = '#ffffff', bg = p.pink3 })
-	h('Search', { bg = p.blueGray3 })
-	h('SpecialKey', { fg = p.teal1 })
-	h('SpellBad', { sp = p.pink3, undercurl = true })
-	h('SpellCap', { sp = p.blue1, undercurl = true })
-	h('SpellLocal', { sp = p.yellow, undercurl = true })
-	h('SpellRare', { sp = p.blue1, undercurl = true })
+	h('RedrawDebugClear', { fg = '#ffffff', bg = p.brightYellow })
+	h('RedrawDebugComposed', { fg = '#ffffff', bg = p.lowerMint })
+	h('RedrawDebugRecompose', { fg = '#ffffff', bg = p.hotRed })
+	h('Search', { bg = p.bluishGray })
+	h('SpecialKey', { fg = p.brightMint })
+	h('SpellBad', { sp = p.hotRed, undercurl = true })
+	h('SpellCap', { sp = p.lowerBlue, undercurl = true })
+	h('SpellLocal', { sp = p.brightYellow, undercurl = true })
+	h('SpellRare', { sp = p.lowerBlue, undercurl = true })
 	h('SignColumn', { fg = p.text, bg = p.none })
-	h('StatusLine', { fg = p.blue3, bg = styles.float_background })
-	h('StatusLineNC', { fg = p.blue3, bg = styles.background })
+	h('StatusLine', { fg = p.desaturatedBlue, bg = styles.float_background })
+	h('StatusLineNC', { fg = p.desaturatedBlue, bg = styles.background })
 	h('StatusLineTerm', { link = 'StatusLine' })
 	h('StatusLineTermNC', { link = 'StatusLineNC' })
-	h('TabLine', { fg = p.blue3, bg = styles.float_background })
+	h('TabLine', { fg = p.desaturatedBlue, bg = styles.float_background })
 	h('TabLineFill', { bg = styles.float_background })
-	h('TabLineSel', { fg = p.text, bg = p.background1 })
+	h('TabLineSel', { fg = p.text, bg = p.focus })
 	h('Title', { fg = p.text })
 	h('VertSplit', { fg = groups.border, bg = styles.bold_vert_split })
-	h('Visual', { bg = p.blueGray3 })
+	h('Visual', { bg = p.bluishGray })
 	-- h('VisualNOS', {})
-	h('WarningMsg', { fg = p.yellow })
-	-- h('Whitespace', { fg = p.blueGray3 })
+	h('WarningMsg', { fg = p.brightYellow })
+	-- h('Whitespace', { fg = p.bluishGray })
 	h('WildMenu', { link = 'IncSearch' })
 
 	-- These groups are not listed as default vim groups,
@@ -91,40 +91,40 @@ function M._load(options)
 	-- Uncomment and edit if you want more specific syntax highlighting.
 
 	h('Bold', { bold = true})
-	h('Boolean', { fg = p.teal1 })         --  a boolean constant: TRUE, false
-	h('Character', { fg = p.pink3 })       --  a character constant: 'c', '\n'
-	h('Comment', { fg = p.blueGray1 })     -- (preferred) any special symbol
-	h('Conditional', { fg = p.blueGray1 }) --  if, then, else, endif, switch, etc.
+	h('Boolean', { fg = p.brightMint })         --  a boolean constant: TRUE, false
+	h('Character', { fg = p.hotRed })       --  a character constant: 'c', '\n'
+	h('Comment', { fg = p.gray })     -- (preferred) any special symbol
+	h('Conditional', { fg = p.gray }) --  if, then, else, endif, switch, etc.
 	h('Constant', { fg = p.text })         -- (preferred) any constant
 	-- h('Debug', { }) --    debugging statements
 	-- h('Define',        = { }) --   preprocessor #define
-	h('Delimiter', { fg = p.blueGray1 }) --  character that needs attention
-	h('Error', { fg = p.pink3 })         -- (preferred) any erroneous construct
-	h('Exception', { fg = p.blue3 })     --  try, catch, throw
-	h('Float', { fg = p.teal1 })         --    a floating point constant: 2.3e10
-	h('Function', { fg = p.blue2 })      -- function name (also: methods for classes)
-	h('Identifier', { fg = p.blueGray1 }) -- (preferred) any variable name
+	h('Delimiter', { fg = p.gray }) --  character that needs attention
+	h('Error', { fg = p.hotRed })         -- (preferred) any erroneous construct
+	h('Exception', { fg = p.desaturatedBlue })     --  try, catch, throw
+	h('Float', { fg = p.brightMint })         --    a floating point constant: 2.3e10
+	h('Function', { fg = p.lightBlue })      -- function name (also: methods for classes)
+	h('Identifier', { fg = p.gray }) -- (preferred) any variable name
 	-- h('Ignore', { }) -- (preferred) left blank, hidden  |hl-Ignore|
-	h('Include', { fg = p.blueGray1 })   --  preprocessor #include
-	h('Keyword', { fg = p.blue3 })       --  any other keyword
+	h('Include', { fg = p.gray })   --  preprocessor #include
+	h('Keyword', { fg = p.desaturatedBlue })       --  any other keyword
 	h('Label', { fg = p.text })          --    case, default, etc.
 	h('Italic', { italic = true })
 	-- h('Macro',         = { }) --    same as Define
-	h('Number', { fg = p.teal1 })                    --   a number constant: 234, 0xff
-	h('Operator', { fg = p.blue2 })                  -- "sizeof", "+", "*", etc.
+	h('Number', { fg = p.brightMint })                    --   a number constant: 234, 0xff
+	h('Operator', { fg = p.lightBlue })                  -- "sizeof", "+", "*", etc.
 	-- h('PreCondit',     = { }) --  preprocessor #if, #else, #endif, etc.
 	h('PreProc', { fg = p.text })                    -- (preferred) generic Preprocessor
-	h('Repeat', { fg = p.blue3 })                    --   for, do, while, etc.
-	h('Special', { fg = p.blueGray2 })               -- (preferred) any special symbol
+	h('Repeat', { fg = p.desaturatedBlue })                    --   for, do, while, etc.
+	h('Special', { fg = p.darkerGray })               -- (preferred) any special symbol
 	-- h('SpecialChar', { }) --  special character in a constant
-	h('SpecialComment', { fg = p.blueGray1 })        -- special things inside a comment
+	h('SpecialComment', { fg = p.gray })        -- special things inside a comment
 	h('Statement', { fg = p.text })                  -- (preferred) any statement
 	-- h('StorageClass', { }) -- static, register, volatile, etc.
-	h('String', { fg = p.teal1 })                    --   a string constant: "this is a string"
-	h('Structure', { fg = p.blueGray1 }) --  struct, union, enum, etc. ]]
+	h('String', { fg = p.brightMint })                    --   a string constant: "this is a string"
+	h('Structure', { fg = p.gray }) --  struct, union, enum, etc. ]]
 	h('Tag', { fg = p.text })                        --    you can use CTRL-] on this
-	h('Todo', { bg = p.yellow, fg = p.background3 }) -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
-	h('Type', { fg = p.blueGray1 })                  -- (preferred) int, long, char, etc.
+	h('Todo', { bg = p.brightYellow, fg = p.background3 }) -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
+	h('Type', { fg = p.gray })                  -- (preferred) int, long, char, etc.
 	h('Typedef', { link = 'Type' })                  --  A typedef
 	h('Underlined', { underline = true })            -- (preferred) text that stands out, HTML links
 
@@ -134,21 +134,21 @@ function M._load(options)
 	h('htmlH4', { fg = groups.headings.h4, bold = true })
 	h('htmlH5', { fg = groups.headings.h5, bold = true })
 
-	h('markdownHeadingDelimiter', { fg = p.blue4, bold = true })
-	h('markdownCode', { fg = p.blueGray1 })
-	h('markdownCodeBlock', { fg = p.teal2 })
-	h('markdownH1', { fg = p.blue2, bold = true })
-	h('markdownH2', { fg = p.blue2, bold = true })
-	h('markdownH3', { fg = p.blue2, bold = true })
-	h('markdownH4', { fg = p.blue2, bold = true })
-	h('markdownLinkText', { fg = p.blue1, underline = true })
+	h('markdownHeadingDelimiter', { fg = p.bluishGrayBrighter, bold = true })
+	h('markdownCode', { fg = p.gray })
+	h('markdownCodeBlock', { fg = p.lowerMint })
+	h('markdownH1', { fg = p.lightBlue, bold = true })
+	h('markdownH2', { fg = p.lightBlue, bold = true })
+	h('markdownH3', { fg = p.lightBlue, bold = true })
+	h('markdownH4', { fg = p.lightBlue, bold = true })
+	h('markdownLinkText', { fg = p.lowerBlue, underline = true })
 
 	-- h('mkdHeading', { fg = c.orange, style = "bold" })
 	-- h('mkdCode', { bg = c.terminal_black, fg = c.fg })
 	h('mkdCodeDelimiter', { bg = p.background3, fg = p.text })
-	h('mkdCodeStart', { fg = p.teal2, bold = true })
-	h('mkdCodeEnd', { fg = p.teal2, bold = true })
-	h('mkdLink', { fg = p.blue1, underline = true })
+	h('mkdCodeStart', { fg = p.lowerMint, bold = true })
+	h('mkdCodeEnd', { fg = p.lowerMint, bold = true })
+	h('mkdLink', { fg = p.lowerBlue, underline = true })
 
 	h('DiagnosticError', { fg = groups.error })
 	h('DiagnosticHint', { fg = groups.hint })
@@ -188,33 +188,33 @@ function M._load(options)
 	h('@boolean', { link = 'Boolean' })
 	h('@character', { link = 'Character' })
 	h('@character.special', { link = '@character' })
-	h('@class', { fg = p.blue2  })
+	h('@class', { fg = p.lightBlue  })
 	h('@comment', { link = 'Comment' })
 	h('@conditional', { link = 'Conditional' })
 	h('@constant', { link = 'Constant' })
-	h('@constant.builtin', { fg = p.blue2 })
+	h('@constant.builtin', { fg = p.lightBlue })
 	h('@constant.macro', { link = '@constant' })
-	h('@constant.falsy', { fg = p.pink3 })
-	h('@constructor', { fg = p.teal1 })
+	h('@constant.falsy', { fg = p.hotRed })
+	h('@constructor', { fg = p.brightMint })
 	h('@field', { fg = p.text })
 	h('@function', { link = 'Function' })
-	h('@function.builtin', { fg = p.blue2 })
+	h('@function.builtin', { fg = p.lightBlue })
 	h('@function.macro', { link = '@function' })
-	h('@function.call', { fg = p.blueGray1 })
+	h('@function.call', { fg = p.gray })
 	h('@include', { link = 'Include' })
-	h('@interface', { fg = p.foam })
+	h('@interface', { fg = p.lightBlue })
 	h('@keyword', { link = 'Keyword' })
-	h('@keyword.function', { fg = p.teal2 })
-	h('@keyword.operator', { fg = p.teal1 })
-	h('@keyword.return', { fg = p.teal2 })
+	h('@keyword.function', { fg = p.lowerMint })
+	h('@keyword.operator', { fg = p.brightMint })
+	h('@keyword.return', { fg = p.lowerMint })
 	h('@label', { link = 'Label' })
 	h('@macro', { link = 'Macro' })
-	h('@method', { fg = p.teal1 })
+	h('@method', { fg = p.brightMint })
 	h('@number', { link = 'Number' })
 	h('@operator', { link = 'Operator' })
 	h('@parameter', { fg = p.text, italic = styles.italic })
 	h('@preproc', { link = 'PreProc' })
-	h('@property', { fg = p.blue2, italic = styles.italic })
+	h('@property', { fg = p.lightBlue, italic = styles.italic })
 	h('@punctuation', { fg = groups.punctuation })
 	h('@punctuation.bracket', { fg = p.text })
 	h('@punctuation.delimiter', { link = '@punctuation' })
@@ -223,11 +223,11 @@ function M._load(options)
 	h('@repeat', { link = 'Repeat' })
 	h('@storageclass', { link = 'StorageClass' })
 	h('@string', { link = 'String' })
-	h('@string.escape', { fg = p.pink3 })
+	h('@string.escape', { fg = p.hotRed })
 	h('@string.special', { link = '@string' })
 	h('@symbol', { link = 'Identifier' })
 	h('@tag', { link = 'Tag' })
-	h('@tag.attribute', { fg = p.blue3, styles.italic })
+	h('@tag.attribute', { fg = p.desaturatedBlue, styles.italic })
 	h('@tag.delimiter', { fg = p.text })
 	h('@text', { fg = p.text })
 	h('@text.strong', { bold = true })
@@ -245,7 +245,7 @@ function M._load(options)
 	h('@todo', { link = 'Todo' })
 	h('@type', { link = 'Type' })
 	h('@variable', { fg = p.text })
-	h('@variable.builtin', { fg = p.blue2 })
+	h('@variable.builtin', { fg = p.lightBlue })
 	h('@namespace', { link = '@include' })
 
 	-- LSP Semantic Token Groups
@@ -266,31 +266,31 @@ function M._load(options)
 
 
 	-- vim.lsp.buf.document_highlight()
-	h('LspReferenceText', { bg = p.blue2 })
-	h('LspReferenceRead', { bg = p.blue2 })
-	h('LspReferenceWrite', { bg = p.blue2 })
+	h('LspReferenceText', { bg = p.lightBlue })
+	h('LspReferenceRead', { bg = p.lightBlue })
+	h('LspReferenceWrite', { bg = p.lightBlue })
 
 	-- lsp-highlight-codelens
-	h('LspCodeLens', { fg = p.blueGray1 })          -- virtual text of code lens
-	h('LspCodeLensSeparator', { fg = p.blueGray3 }) -- separator between two or more code lens
+	h('LspCodeLens', { fg = p.gray })          -- virtual text of code lens
+	h('LspCodeLensSeparator', { fg = p.bluishGray }) -- separator between two or more code lens
 
 	-- romgrk/barbar.nvim
-	h('BufferCurrent', { fg = p.text, bg = p.background2 })
-	h('BufferCurrentIndex', { fg = p.text, bg = p.background2 })
-	h('BufferCurrentMod', { fg = p.teal1, bg = p.background2 })
-	h('BufferCurrentSign', { fg = p.blueGray1, bg = p.background2 })
-	h('BufferCurrentTarget', { fg = p.yellow, bg = p.background2 })
-	h('BufferInactive', { fg = p.blueGray1 })
-	h('BufferInactiveIndex', { fg = p.blueGray1 })
-	h('BufferInactiveMod', { fg = p.teal1 })
-	h('BufferInactiveSign', { fg = p.blueGray2 })
-	h('BufferInactiveTarget', { fg = p.yellow })
+	h('BufferCurrent', { fg = p.text, bg = p.bg })
+	h('BufferCurrentIndex', { fg = p.text, bg = p.bg })
+	h('BufferCurrentMod', { fg = p.brightMint, bg = p.bg })
+	h('BufferCurrentSign', { fg = p.gray, bg = p.bg })
+	h('BufferCurrentTarget', { fg = p.brightYellow, bg = p.bg })
+	h('BufferInactive', { fg = p.gray })
+	h('BufferInactiveIndex', { fg = p.gray })
+	h('BufferInactiveMod', { fg = p.brightMint })
+	h('BufferInactiveSign', { fg = p.darkerGray })
+	h('BufferInactiveTarget', { fg = p.brightYellow })
 	h('BufferTabpageFill', { fg = groups.background, bg = groups.background })
-	h('BufferVisible', { fg = p.blueGray1 })
-	h('BufferVisibleIndex', { fg = p.blueGray1 })
-	h('BufferVisibleMod', { fg = p.teal1 })
-	h('BufferVisibleSign', { fg = p.blueGray2 })
-	h('BufferVisibleTarget', { fg = p.yellow })
+	h('BufferVisible', { fg = p.gray })
+	h('BufferVisibleIndex', { fg = p.gray })
+	h('BufferVisibleMod', { fg = p.brightMint })
+	h('BufferVisibleSign', { fg = p.darkerGray })
+	h('BufferVisibleTarget', { fg = p.brightYellow })
 
 	-- lewis6991/gitsigns.nvim
 	h('GitSignsAdd', { fg = groups.git_add, bg = groups.background })
@@ -301,21 +301,21 @@ function M._load(options)
 	h('SignDelete', { link = 'GitSignsDelete' })
 
 	-- mvllow/modes.nvim
-	h('ModesCopy', { bg = p.yellow })
-	h('ModesDelete', { bg = p.pink3 })
-	h('ModesInsert', { bg = p.teal1 })
-	h('ModesVisual', { bg = p.yellow })
+	h('ModesCopy', { bg = p.brightYellow })
+	h('ModesDelete', { bg = p.hotRed })
+	h('ModesInsert', { bg = p.brightMint })
+	h('ModesVisual', { bg = p.brightYellow })
 
 	-- kyazdani42/nvim-tree.lua
-	h('NvimTreeEmptyFolderName', { fg = p.blueGray3 })
-	h('NvimTreeFileDeleted', { fg = p.pink3 })
-	h('NvimTreeFileDirty', { fg = p.blue4 })
-	h('NvimTreeFileMerge', { fg = p.blue2 })
-	h('NvimTreeFileNew', { fg = p.teal1 })
-	h('NvimTreeFileRenamed', { fg = p.blueGray3 })
-	h('NvimTreeFileStaged', { fg = p.blue1 })
-	h('NvimTreeFolderIcon', { fg = p.blue3 })
-	h('NvimTreeFolderName', { fg = p.blue3 })
+	h('NvimTreeEmptyFolderName', { fg = p.bluishGray })
+	h('NvimTreeFileDeleted', { fg = p.hotRed })
+	h('NvimTreeFileDirty', { fg = p.bluishGrayBrighter })
+	h('NvimTreeFileMerge', { fg = p.lightBlue })
+	h('NvimTreeFileNew', { fg = p.brightMint })
+	h('NvimTreeFileRenamed', { fg = p.bluishGray })
+	h('NvimTreeFileStaged', { fg = p.lowerBlue })
+	h('NvimTreeFolderIcon', { fg = p.desaturatedBlue })
+	h('NvimTreeFolderName', { fg = p.desaturatedBlue })
 	h('NvimTreeGitDeleted', { fg = groups.git_delete })
 	h('NvimTreeGitDirty', { fg = groups.git_dirty })
 	h('NvimTreeGitIgnored', { fg = groups.git_ignore })
@@ -325,14 +325,14 @@ function M._load(options)
 	h('NvimTreeGitStaged', { fg = groups.git_stage })
 	h('NvimTreeImageFile', { fg = p.text })
 	h('NvimTreeNormal', { fg = p.text })
-	h('NvimTreeOpenedFile', { fg = p.text, bg = p.background1 })
+	h('NvimTreeOpenedFile', { fg = p.text, bg = p.focus })
 	h('NvimTreeOpenedFolderName', { link = 'NvimTreeFolderName' })
-	h('NvimTreeRootFolder', { fg = p.teal1 })
+	h('NvimTreeRootFolder', { fg = p.brightMint })
 	h('NvimTreeSpecialFile', { link = 'NvimTreeNormal' })
-	h('NvimTreeWindowPicker', { fg = groups.bg, bg = p.blueGray1 })
+	h('NvimTreeWindowPicker', { fg = groups.bg, bg = p.gray })
 
 	-- nvim-neo-tree/neo-tree.nvim
-	h('NeoTreeTitleBar', { fg = p.background3, bg = p.blueGray3 })
+	h('NeoTreeTitleBar', { fg = p.background3, bg = p.bluishGray })
 
 	-- folke/which-key.nvim
 	h('WhichKey', { fg = p.text })
@@ -343,42 +343,42 @@ function M._load(options)
 	h('WhichKeyValue', { fg = p.text })
 
 	-- luka-reineke/indent-blankline.nvim
-	h('IndentBlanklineChar', { fg = p.background1 })
-	h('IndentBlanklineContextChar', { fg = p.yellow, nocombine = true })
+	h('IndentBlanklineChar', { fg = p.focus })
+	h('IndentBlanklineContextChar', { fg = p.brightYellow, nocombine = true })
 	h('IndentBlanklineSpaceChar', { link = 'Whitespace' })
 
 	-- hrsh7th/nvim-cmp
-	h('CmpItemAbbr', { fg = p.blueGray2 })
-	h('CmpItemAbbrDeprecated', { fg = p.pink3, strikethrough = true })
+	h('CmpItemAbbr', { fg = p.darkerGray })
+	h('CmpItemAbbrDeprecated', { fg = p.hotRed, strikethrough = true })
 	h('CmpItemAbbrMatch', { fg = p.text, bold = true })
-	h('CmpItemAbbrMatchFuzzy', { fg = p.teal1, bold = true })
-	h('CmpItemKind', { fg = p.blue3 })
-	h('CmpItemKindClass', { fg = p.yellow })
-	h('CmpItemKindFunction', { fg = p.blue1 })
-	h('CmpItemKindInterface', { fg = p.blue2 })
-	h('CmpItemKindMethod', { fg = p.pink3 })
-	h('CmpItemKindSnippet', { fg = p.blueGray1 })
-	h('CmpItemKindVariable', { fg = p.teal1 })
+	h('CmpItemAbbrMatchFuzzy', { fg = p.brightMint, bold = true })
+	h('CmpItemKind', { fg = p.desaturatedBlue })
+	h('CmpItemKindClass', { fg = p.brightYellow })
+	h('CmpItemKindFunction', { fg = p.lowerBlue })
+	h('CmpItemKindInterface', { fg = p.lightBlue })
+	h('CmpItemKindMethod', { fg = p.hotRed })
+	h('CmpItemKindSnippet', { fg = p.gray })
+	h('CmpItemKindVariable', { fg = p.brightMint })
 
 	-- TimUntersberger/neogit
-	h('NeogitDiffAddHighlight', { fg = p.teal1, bg = p.background1 })
-	h('NeogitDiffContextHighlight', { bg = p.backgroun1 })
-	h('NeogitDiffDeleteHighlight', { fg = p.pink3, bg = p.background1 })
-	h('NeogitHunkHeader', { bg = p.background1 })
-	h('NeogitHunkHeaderHighlight', { bg = p.background1 })
+	h('NeogitDiffAddHighlight', { fg = p.brightMint, bg = p.focus })
+	h('NeogitDiffContextHighlight', { bg = p.background1 })
+	h('NeogitDiffDeleteHighlight', { fg = p.hotRed, bg = p.focus })
+	h('NeogitHunkHeader', { bg = p.focus })
+	h('NeogitHunkHeaderHighlight', { bg = p.focus })
 
 	-- vimwiki/vimwiki
-	h('VimwikiHR', { fg = p.blueGray2 })
+	h('VimwikiHR', { fg = p.darkerGray })
 	h('VimwikiHeader1', { fg = groups.headings.h1, bold = true })
 	h('VimwikiHeader2', { fg = groups.headings.h2, bold = true })
 	h('VimwikiHeader3', { fg = groups.headings.h3, bold = true })
 	h('VimwikiHeader4', { fg = groups.headings.h4, bold = true })
 	h('VimwikiHeader5', { fg = groups.headings.h5, bold = true })
 	h('VimwikiHeader6', { fg = groups.headings.h6, bold = true })
-	h('VimwikiHeaderChar', { fg = p.yellow })
+	h('VimwikiHeaderChar', { fg = p.brightYellow })
 	h('VimwikiLink', { fg = p.text, underline = true })
 	h('VimwikiList', { fg = p.text })
-	h('VimwikiNoExistsLink', { fg = p.pink3 })
+	h('VimwikiNoExistsLink', { fg = p.hotRed })
 
 	-- nvim-neorg/neorg
 	h('NeorgHeading1Prefix', { fg = groups.headings.h1, bold = true })
@@ -396,38 +396,38 @@ function M._load(options)
 	h('NeorgMarkerTitle', { fg = p.text, bold = true })
 
 	-- tami5/lspsaga.nvim (fork of glepnir/lspsaga.nvim)
-	h('DefinitionCount', { fg = p.blue1 })
-	h('DefinitionIcon', { fg = p.blue1 })
-	h('DefintionPreviewTitle', { fg = p.blue1, bold = true })
+	h('DefinitionCount', { fg = p.lowerBlue })
+	h('DefinitionIcon', { fg = p.lowerBlue })
+	h('DefintionPreviewTitle', { fg = p.lowerBlue, bold = true })
 	h('LspFloatWinBorder', { fg = groups.border })
 	h('LspFloatWinNormal', { bg = styles.float_background })
-	h('LspSagaAutoPreview', { fg = p.blueGray2 })
+	h('LspSagaAutoPreview', { fg = p.darkerGray })
 	h('LspSagaCodeActionBorder', { fg = groups.border })
-	h('LspSagaCodeActionContent', { fg = p.blue2 })
-	h('LspSagaCodeActionTitle', { fg = p.yellow, bold = true })
+	h('LspSagaCodeActionContent', { fg = p.lightBlue })
+	h('LspSagaCodeActionTitle', { fg = p.brightYellow, bold = true })
 	h('LspSagaCodeActionTruncateLine', { link = 'LspSagaCodeActionBorder' })
 	h('LspSagaDefPreviewBorder', { fg = groups.border })
 	h('LspSagaDiagnosticBorder', { fg = groups.border })
-	h('LspSagaDiagnosticHeader', { fg = p.yellow, bold = true })
+	h('LspSagaDiagnosticHeader', { fg = p.brightYellow, bold = true })
 	h('LspSagaDiagnosticTruncateLine', { link = 'LspSagaDiagnosticBorder' })
 	h('LspSagaDocTruncateLine', { link = 'LspSagaHoverBorder' })
-	h('LspSagaFinderSelection', { fg = p.yellow })
+	h('LspSagaFinderSelection', { fg = p.brightYellow })
 	h('LspSagaHoverBorder', { fg = groups.border })
 	h('LspSagaLspFinderBorder', { fg = groups.border })
-	h('LspSagaRenameBorder', { fg = p.yellow })
-	h('LspSagaRenamePromptPrefix', { fg = p.pink3 })
+	h('LspSagaRenameBorder', { fg = p.brightYellow })
+	h('LspSagaRenamePromptPrefix', { fg = p.hotRed })
 	h('LspSagaShTruncateLine', { link = 'LspSagaSignatureHelpBorder' })
-	h('LspSagaSignatureHelpBorder', { fg = p.yellow })
-	h('ReferencesCount', { fg = p.blue1 })
-	h('ReferencesIcon', { fg = p.blue1 })
-	h('SagaShadow', { bg = p.background2 })
+	h('LspSagaSignatureHelpBorder', { fg = p.brightYellow })
+	h('ReferencesCount', { fg = p.lowerBlue })
+	h('ReferencesIcon', { fg = p.lowerBlue })
+	h('SagaShadow', { bg = p.bg })
 	h('TargetWord', { fg = p.text })
 
 	-- ray-x/lsp_signature.nvim
-	h('LspSignatureActiveParameter', { bg = p.blueGray1 })
+	h('LspSignatureActiveParameter', { bg = p.gray })
 
 	-- rlane/pounce.nvim
-	h('PounceAccept', { fg = p.pink3, bg = p.text })
+	h('PounceAccept', { fg = p.hotRed, bg = p.text })
 	h('PounceAcceptBest', { fg = p.text, bg = p.text })
 	h('PounceGap', { link = 'Search' })
 	h('PounceMatch', { link = 'Search' })
@@ -435,69 +435,69 @@ function M._load(options)
 	-- ggandor/leap.nvim
 	h('LeapMatch', { link = 'MatchParen' })
 	h('LeapLabelPrimary', { link = 'IncSearch' })
-	h('LeapLabelSecondary', { fg = p.background3, bg = p.yellow })
+	h('LeapLabelSecondary', { fg = p.background3, bg = p.brightYellow })
 
 	-- nvim-telescope/telescope.nvim
 	h('TelescopeBorder', { fg = groups.border })
-	h('TelescopeMatching', { fg = p.teal1 })
+	h('TelescopeMatching', { fg = p.brightMint })
 	h('TelescopeNormal', { fg = p.text })
 	h('TelescopePromptNormal', { fg = p.text })
-	h('TelescopePromptPrefix', { fg = p.blueGray1 })
-	h('TelescopeSelection', { fg = p.text, bg = p.blueGray1 })
-	h('TelescopeSelectionCaret', { fg = p.pink2, bg = p.blueGray1 })
-	h('TelescopeTitle', { fg = p.blueGray2 })
+	h('TelescopePromptPrefix', { fg = p.gray })
+	h('TelescopeSelection', { fg = p.text, bg = p.gray })
+    h('TelescopeSelectionCaret', { fg = p.pink, bg = p.gray })
+	h('TelescopeTitle', { fg = p.darkerGray })
 
 	-- phaazon/hop.nvim
-	h('HopNextKey', { fg = p.blue1 })
-	h('HopNextKey1', { fg = p.teal1 })
-	h('HopNextKey2', { fg = p.teal2 })
-	h('HopUnmatched', { fg = p.blueGray3 })
-	h('HopCursor', { fg = p.blue3 })
+	h('HopNextKey', { fg = p.lowerBlue })
+	h('HopNextKey1', { fg = p.brightMint })
+	h('HopNextKey2', { fg = p.lowerMint })
+	h('HopUnmatched', { fg = p.bluishGray })
+	h('HopCursor', { fg = p.desaturatedBlue })
 
 	-- rcarriga/nvim-notify
-	h('NotifyINFOBorder', { fg = p.teal1 })
+	h('NotifyINFOBorder', { fg = p.brightMint })
 	h('NotifyINFOTitle', { link = 'NotifyINFOBorder' })
 	h('NotifyINFOIcon', { link = 'NotifyINFOBorder' })
-	h('NotifyWARNBorder', { fg = p.yellow })
+	h('NotifyWARNBorder', { fg = p.brightYellow })
 	h('NotifyWARNTitle', { link = 'NotifyWARNBorder' })
 	h('NotifyWARNIcon', { link = 'NotifyWARNBorder' })
-	h('NotifyDEBUGBorder', { fg = p.blue1 })
+	h('NotifyDEBUGBorder', { fg = p.lowerBlue })
 	h('NotifyDEBUGTitle', { link = 'NotifyDEBUGBorder' })
 	h('NotifyDEBUGIcon', { link = 'NotifyDEBUGBorder' })
-	h('NotifyTRACEBorder', { fg = p.blue1 })
+	h('NotifyTRACEBorder', { fg = p.lowerBlue })
 	h('NotifyTRACETitle', { link = 'NotifyTRACEBorder' })
 	h('NotifyTRACEIcon', { link = 'NotifyTRACEBorder' })
-	h('NotifyERRORBorder', { fg = p.pink3 })
+	h('NotifyERRORBorder', { fg = p.hotRed })
 	h('NotifyERRORTitle', { link = 'NotifyERRORBorder' })
 	h('NotifyERRORIcon', { link = 'NotifyERRORBorder' })
 
 	-- glepnir/lspsaga.nvim
-	h('TitleString', { fg = p.blue2 })
-	h('TitleIcon', { fg = p.blue2 })
-	h('SagaBorder', { bg = p.background2, fg = p.blueGray2 })
-	h('SagaNormal', { bg = p.background2 })
-	h('SagaExpand', { fg = p.teal2 })
-	h('SagaCollapse', { fg = p.teal2 })
-	h('SagaBeacon', { bg = p.yellow })
+	h('TitleString', { fg = p.lightBlue })
+	h('TitleIcon', { fg = p.lightBlue })
+	h('SagaBorder', { bg = p.bg, fg = p.darkerGray })
+	h('SagaNormal', { bg = p.bg })
+	h('SagaExpand', { fg = p.lowerMint })
+	h('SagaCollapse', { fg = p.lowerMint })
+	h('SagaBeacon', { bg = p.brightYellow })
 	-- code action
 	h('ActionPreviewNormal', { link = 'SagaNormal' })
 	h('ActionPreviewBorder', { link = 'SagaBorder' })
-	h('ActionPreviewTitle', { fg = p.blueGray2, bg = p.background2 })
+	h('ActionPreviewTitle', { fg = p.darkerGray, bg = p.bg })
 	h('CodeActionNormal', { link = 'SagaNormal' })
 	h('CodeActionBorder', { link = 'SagaBorder' })
-	h('CodeActionText', { fg = p.yellow })
-	h('CodeActionNumber', { fg = p.blue3 })
+	h('CodeActionText', { fg = p.brightYellow })
+	h('CodeActionNumber', { fg = p.desaturatedBlue })
 	-- finder
-	h('FinderSelection', { fg = p.blueGray2, bold = true })
+	h('FinderSelection', { fg = p.darkerGray, bold = true })
 	h('FinderFileName', { fg = p.white })
 	h('FinderCount', { link = 'Label' })
-	h('FinderIcon', { fg = p.yellow })
-	h('FinderType', { fg = p.teal1 })
+	h('FinderIcon', { fg = p.brightYellow })
+	h('FinderType', { fg = p.brightMint })
 	--finder spinner
-	h('FinderSpinnerTitle', { fg = p.pink3, bold = true })
-	h('FinderSpinner', { fg = p.pink3, bold = true })
+	h('FinderSpinnerTitle', { fg = p.hotRed, bold = true })
+	h('FinderSpinner', { fg = p.hotRed, bold = true })
 	h('FinderPreviewSearch', { link = 'Search' })
-	h('FinderVirtText', { fg = p.blue1 })
+	h('FinderVirtText', { fg = p.lowerBlue })
 	h('FinderNormal', { link = 'SagaNormal' })
 	h('FinderBorder', { link = 'SagaBorder' })
 	h('FinderPreviewBorder', { link = 'SagaBorder' })
@@ -510,29 +510,29 @@ function M._load(options)
 	h('HoverBorder', { link = 'SagaBorder' })
 	-- rename
 	h('RenameBorder', { link = 'SagaBorder' })
-	h('RenameNormal', { fg = p.white, p.background2 })
+	h('RenameNormal', { fg = p.white, p.bg })
 	h('RenameMatch', { link = 'Search' })
 	-- diagnostic
 	h('DiagnosticBorder', { link = 'SagaBorder' })
-	h('DiagnosticSource', { fg = p.blueGray2 })
+	h('DiagnosticSource', { fg = p.darkerGray })
 	h('DiagnosticNormal', { link = 'SagaNormal' })
 	h('DiagnosticErrorBorder', { link = 'DiagnosticError' })
 	h('DiagnosticWarnBorder', { link = 'DiagnosticWarn' })
 	h('DiagnosticHintBorder', { link = 'DiagnosticHint' })
 	h('DiagnosticInfoBorder', { link = 'DiagnosticInfo' })
-	h('DiagnosticPos', { fg = p.blueGray2 })
+	h('DiagnosticPos', { fg = p.darkerGray })
 	h('DiagnosticWord', { fg = p.white })
 	-- Call Hierachry
 	h('CallHierarchyNormal', { link = 'SagaNormal' })
 	h('CallHierarchyBorder', { link = 'SagaBorder' })
-	h('CallHierarchyIcon', { fg = p.pink2 })
-	h('CallHierarchyTitle', { fg = p.pink2 })
+	h('CallHierarchyIcon', { fg = p.pink })
+	h('CallHierarchyTitle', { fg = p.pink })
 	-- lightbulb
 	h('LspSagaLightBulb', { link = 'DiagnosticSignHint' })
 	-- shadow
-	h('SagaShadow', { bg = p.background3 })
+	h('SagaShadow', { bg = p.darkerGray })
 	-- Outline
-	h('OutlineIndent', { fg = p.blue2 })
+	h('OutlineIndent', { fg = p.lightBlue })
 	h('OutlinePreviewBorder', { link = 'SagaNormal' })
 	h('OutlinePreviewNormal', { link = 'SagaBorder' })
 	-- Float term
@@ -542,18 +542,18 @@ function M._load(options)
 
 	vim.g.terminal_color_0 = p.background3 -- black
 	vim.g.terminal_color_8 = p.background3 -- bright black
-	vim.g.terminal_color_1 = p.pink3     -- red
-	vim.g.terminal_color_9 = p.pink3     -- bright red
-	vim.g.terminal_color_2 = p.teal1     -- green
-	vim.g.terminal_color_10 = p.teal1    -- bright green
-	vim.g.terminal_color_3 = p.yellow    -- yellow
-	vim.g.terminal_color_11 = p.yellow   -- bright yellow
-	vim.g.terminal_color_4 = p.blue1     -- blue
-	vim.g.terminal_color_12 = p.blue2    -- bright blue
-	vim.g.terminal_color_5 = p.pink2     -- magenta
-	vim.g.terminal_color_13 = p.pink2    -- bright magenta
-	vim.g.terminal_color_6 = p.blue1     -- cyan
-	vim.g.terminal_color_14 = p.blue2    -- bright cyan
+	vim.g.terminal_color_1 = p.hotRed     -- red
+	vim.g.terminal_color_9 = p.hotRed     -- bright red
+	vim.g.terminal_color_2 = p.brightMint     -- green
+	vim.g.terminal_color_10 = p.brightMint    -- bright green
+	vim.g.terminal_color_3 = p.brightYellow    -- yellow
+	vim.g.terminal_color_11 = p.brightYellow   -- bright yellow
+	vim.g.terminal_color_4 = p.lowerBlue     -- blue
+	vim.g.terminal_color_12 = p.lightBlue    -- bright blue
+	vim.g.terminal_color_5 = p.pink     -- magenta
+	vim.g.terminal_color_13 = p.pink    -- bright magenta
+	vim.g.terminal_color_6 = p.lowerBlue     -- cyan
+	vim.g.terminal_color_14 = p.lightBlue    -- bright cyan
 	vim.g.terminal_color_7 = p.white     -- white
 	vim.g.terminal_color_15 = p.white    -- bright white
 

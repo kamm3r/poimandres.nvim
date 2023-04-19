@@ -18,6 +18,6 @@ function M.colorscheme(options)
     require('poimandres.theme')._load(config.options)
 end
 
-M.setup = config.setup
+M.setup = config.setup()
 
 return M
