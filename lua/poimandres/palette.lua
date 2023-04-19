@@ -1,4 +1,4 @@
-local options = require('poimandres.config').options
+--local options = require('poimandres.config').options
 
 local variants = {
     main = {
@@ -49,9 +49,4 @@ local variants = {
     }
 }
 
-
-local palette = {}
-
-palette = variants.main
-
-return palette
+return variants.main

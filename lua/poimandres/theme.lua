@@ -42,9 +42,9 @@ function M._load(options)
 	h('FloatTitle', { fg = p.darkerGray })
 	h('FoldColumn', { fg = p.darkerGray })
 	h('Folded', { fg = p.text, bg = groups.panel })
-	h('IncSearch', { fg = p.background3, bg = p.lightBlue })
+	h('IncSearch', { fg = p.selection, bg = p.lightBlue })
 	h('LineNr', { fg = p.bluishGray })
-	h('MatchParen', { bg = p.bluishGray, fg = p.background3 })
+	h('MatchParen', { bg = p.bluishGray, fg = p.selection })
 	h('ModeMsg', { fg = p.desaturatedBlue })
 	h('MoreMsg', { fg = p.desaturatedBlue })
 	h('NonText', { fg = p.bluishGrayBrighter })
@@ -123,7 +123,7 @@ function M._load(options)
 	h('String', { fg = p.brightMint })                    --   a string constant: "this is a string"
 	h('Structure', { fg = p.gray }) --  struct, union, enum, etc. ]]
 	h('Tag', { fg = p.text })                        --    you can use CTRL-] on this
-	h('Todo', { bg = p.brightYellow, fg = p.background3 }) -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
+	h('Todo', { bg = p.brightYellow, fg = p.selection }) -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 	h('Type', { fg = p.gray })                  -- (preferred) int, long, char, etc.
 	h('Typedef', { link = 'Type' })                  --  A typedef
 	h('Underlined', { underline = true })            -- (preferred) text that stands out, HTML links
@@ -145,7 +145,7 @@ function M._load(options)
 
 	-- h('mkdHeading', { fg = c.orange, style = "bold" })
 	-- h('mkdCode', { bg = c.terminal_black, fg = c.fg })
-	h('mkdCodeDelimiter', { bg = p.background3, fg = p.text })
+	h('mkdCodeDelimiter', { bg = p.selection, fg = p.text })
 	h('mkdCodeStart', { fg = p.lowerMint, bold = true })
 	h('mkdCodeEnd', { fg = p.lowerMint, bold = true })
 	h('mkdLink', { fg = p.lowerBlue, underline = true })
@@ -332,7 +332,7 @@ function M._load(options)
 	h('NvimTreeWindowPicker', { fg = groups.bg, bg = p.gray })
 
 	-- nvim-neo-tree/neo-tree.nvim
-	h('NeoTreeTitleBar', { fg = p.background3, bg = p.bluishGray })
+	h('NeoTreeTitleBar', { fg = p.selection, bg = p.bluishGray })
 
 	-- folke/which-key.nvim
 	h('WhichKey', { fg = p.text })
@@ -362,7 +362,7 @@ function M._load(options)
 
 	-- TimUntersberger/neogit
 	h('NeogitDiffAddHighlight', { fg = p.brightMint, bg = p.focus })
-	h('NeogitDiffContextHighlight', { bg = p.background1 })
+	h('NeogitDiffContextHighlight', { bg = p.focus })
 	h('NeogitDiffDeleteHighlight', { fg = p.hotRed, bg = p.focus })
 	h('NeogitHunkHeader', { bg = p.focus })
 	h('NeogitHunkHeaderHighlight', { bg = p.focus })
@@ -435,7 +435,7 @@ function M._load(options)
 	-- ggandor/leap.nvim
 	h('LeapMatch', { link = 'MatchParen' })
 	h('LeapLabelPrimary', { link = 'IncSearch' })
-	h('LeapLabelSecondary', { fg = p.background3, bg = p.brightYellow })
+	h('LeapLabelSecondary', { fg = p.selection, bg = p.brightYellow })
 
 	-- nvim-telescope/telescope.nvim
 	h('TelescopeBorder', { fg = groups.border })
@@ -540,8 +540,8 @@ function M._load(options)
 	h('TerminalNormal', { link = 'SagaNormal' })
 
 
-	vim.g.terminal_color_0 = p.background3 -- black
-	vim.g.terminal_color_8 = p.background3 -- bright black
+	vim.g.terminal_color_0 = p.selection -- black
+	vim.g.terminal_color_8 = p.selection -- bright black
 	vim.g.terminal_color_1 = p.hotRed     -- red
 	vim.g.terminal_color_9 = p.hotRed     -- bright red
 	vim.g.terminal_color_2 = p.brightMint     -- green
