@@ -2,29 +2,29 @@ local palette = require('poimandres.palette')
 
 return {
     normal = {
-        a = { bg = palette.teal1, fg = palette.background2, gui = 'bold' },
-        b = { bg = palette.background1, fg = palette.text },
-        c = { bg = palette.none, fg = palette.blueGray1 },
+        a = { bg = palette.brightMint, fg = palette.bg, gui = 'bold' },
+        b = { bg = palette.focus, fg = palette.text },
+        c = { bg = palette.none, fg = palette.gray },
     },
     insert = {
-        a = { bg = palette.blue1, fg = palette.background2, gui = 'bold' },
-        b = { bg = palette.background1, fg = palette.text },
+        a = { bg = palette.lowerBlue, fg = palette.bg, gui = 'bold' },
+        b = { bg = palette.focus, fg = palette.text },
     },
     visual = {
-        a = { bg = palette.yellow, fg = palette.background2, gui = 'bold' },
-        b = { bg = palette.background1, fg = palette.text },
+        a = { bg = palette.brightYellow, fg = palette.bg, gui = 'bold' },
+        b = { bg = palette.focus, fg = palette.text },
     },
     replace = {
-        a = { bg = palette.pink3, fg = palette.background2, gui = 'bold' },
-        b = { bg = palette.background1, fg = palette.text },
+        a = { bg = palette.hotRed, fg = palette.bg, gui = 'bold' },
+        b = { bg = palette.focus, fg = palette.text },
     },
     command = {
-        a = { bg = palette.yellow, fg = palette.background2, gui = 'bold' },
-        b = { bg = palette.background1, fg = palette.text },
+        a = { bg = palette.brightYellow, fg = palette.bg, gui = 'bold' },
+        b = { bg = palette.focus, fg = palette.text },
     },
     inactive = {
-        a = { bg = palette.background1, fg = palette.blueGray3, gui = 'bold' },
-        b = { bg = palette.background1, fg = palette.blueGray3 },
-        c = { bg = palette.none, fg = palette.blueGray3 },
+        a = { bg = palette.focus, fg = palette.bluishGray, gui = 'bold' },
+        b = { bg = palette.focus, fg = palette.bluishGray },
+        c = { bg = palette.none, fg = palette.bluishGray },
     },
 }
