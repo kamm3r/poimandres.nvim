@@ -1,1 +1,1 @@
-require('lua.poimandres')._load('white')
+require('lua.poimandres.init')._load('white')

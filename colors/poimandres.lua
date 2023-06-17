@@ -1,1 +1,1 @@
-require('lua.poimandres')._load()
+require('lua.poimandres.init')._load()

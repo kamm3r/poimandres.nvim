@@ -1,1 +1,1 @@
-require('lua.poimandres')._load('storm')
+require('lua.poimandres.init')._load('storm')
