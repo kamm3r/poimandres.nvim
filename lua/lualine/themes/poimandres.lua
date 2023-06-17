@@ -25,6 +25,10 @@ local poimandres = {}
         a = { bg = colors.brightYellow, fg = colors.bg, gui = 'bold' },
         b = { bg = colors.focus, fg = colors.offWhite },
     }
+    poimandres.terminal = {
+        a = {bg = colors.bluishGreen, fg = colors.selection },
+        b = {bg = colors.focus, fg=colors.bluishGreen },
+      }
     poimandres.inactive = {
         a = { bg = colors.focus, fg = colors.bluishGray, gui = 'bold' },
         b = { bg = colors.focus, fg = colors.bluishGray },

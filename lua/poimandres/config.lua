@@ -2,7 +2,7 @@ local M = {}
 
 ---@class Config
 ---@field on_colors fun(colors: ColorScheme)
----@field on_highlights fun(highlights: Highlights, colors: ColorScheme
+---@field on_highlights fun(highlights: Highlights, colors: ColorScheme)
 local defaults = {
     style = "main",      -- The theme comes in three styles, `storm`, a darker variant `night` and `day`
     light_style = "white",  -- The theme is used when the background is set to light

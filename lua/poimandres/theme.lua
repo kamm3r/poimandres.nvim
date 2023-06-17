@@ -56,7 +56,7 @@ function M.setup()
 	MoreMsg = { fg = c.desaturatedBlue },
 	NonText = { fg = c.BluishGrayBrighter },
 	Normal = { fg = c.offWhite, bg = options.transparent and c.none or c.bg},
-	NormalNC = { fg = c.offWhite, bg = options.transparent and c.none or options.dim_inactive and c.bg },
+	NormalNC = { fg = c.offWhite, bg = options.transparent and c.none or  c.bg },
 	NormalSB = { fg = c.fg_sidebar, bg = c.bg_sidebar }, -- normal text in sidebar
 	NormalFloat = {c.fg_float, bg = c.bg_float },
 	NvimInternalError = { fg = '#ffffff', bg = c.hotRed },

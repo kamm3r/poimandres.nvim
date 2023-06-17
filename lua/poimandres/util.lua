@@ -103,7 +103,7 @@ end
 function M.template(str, table)
     return (
         str:gsub("($%b{})", function(w)
-            return vim.tbl_get(table, unpack(vim.split(w:sub(3, -2), ".", { plain = true }))) or w
+            return vim.tbl_get(table, table.unpack(vim.split(w:sub(3, -2), ".", { plain = true }))) or w
         end)
         )
 end
