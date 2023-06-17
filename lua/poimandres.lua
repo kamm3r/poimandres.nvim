@@ -1,23 +1,31 @@
+local util = require('poimandres.util')
 local config = require('poimandres.config')
+local theme = require('poimandres.theme')
+
 local M = {}
 
----@param options Config|nil
-function M.colorscheme(options)
-    if options then
-        config.extend(options)
+function M._load(style)
+    if style and not M._style then
+        M._style = config.options.style
     end
-
-    if vim.g.colors_name then
-        vim.cmd('hi clear')
+    if not style and M._style then
+        config.options.style =  M._style
+        M._style = nil
     end
-
-
-    vim.opt.termguicolors = true
-    vim.g.colors_name = 'poimandres'
-
-    require('poimandres.theme')._load(config.options)
+    M.load({style = style, use_background = style == nil})
 end
 
-M.setup = config.setup()
+---@param opts Config|nil
+function M.load(opts)
+    if opts then
+        config.extend(opts)
+    end
+    util.load(theme.setup())
+end
+
+M.setup = config.setup
+
+-- keep for backward compatibility
+M.colorscheme = M.load
 
 return M

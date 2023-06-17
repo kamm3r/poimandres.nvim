@@ -1,30 +1,40 @@
-local palette = require('poimandres.palette')
+local colors = require('poimandres.colors').setup({transform = true})
+local config = require('poimandres.config').options
 
-return {
-    normal = {
-        a = { bg = palette.brightMint, fg = palette.bg, gui = 'bold' },
-        b = { bg = palette.focus, fg = palette.text },
-        c = { bg = palette.none, fg = palette.gray },
-    },
-    insert = {
-        a = { bg = palette.lowerBlue, fg = palette.bg, gui = 'bold' },
-        b = { bg = palette.focus, fg = palette.text },
-    },
-    visual = {
-        a = { bg = palette.brightYellow, fg = palette.bg, gui = 'bold' },
-        b = { bg = palette.focus, fg = palette.text },
-    },
-    replace = {
-        a = { bg = palette.hotRed, fg = palette.bg, gui = 'bold' },
-        b = { bg = palette.focus, fg = palette.text },
-    },
-    command = {
-        a = { bg = palette.brightYellow, fg = palette.bg, gui = 'bold' },
-        b = { bg = palette.focus, fg = palette.text },
-    },
-    inactive = {
-        a = { bg = palette.focus, fg = palette.bluishGray, gui = 'bold' },
-        b = { bg = palette.focus, fg = palette.bluishGray },
-        c = { bg = palette.none, fg = palette.bluishGray },
-    },
-}
+local poimandres = {}
+
+
+    poimandres.normal = {
+        a = { bg = colors.brightMint, fg = colors.bg, gui = 'bold' },
+        b = { bg = colors.focus, fg = colors.offWhite },
+        c = { bg = colors.none, fg = colors.gray },
+    }
+    poimandres.insert = {
+        a = { bg = colors.lowerBlue, fg = colors.bg, gui = 'bold' },
+        b = { bg = colors.focus, fg = colors.offWhite },
+    }
+    poimandres.visual = {
+        a = { bg = colors.brightYellow, fg = colors.bg, gui = 'bold' },
+        b = { bg = colors.focus, fg = colors.offWhite },
+    }
+    poimandres.replace = {
+        a = { bg = colors.hotRed, fg = colors.bg, gui = 'bold' },
+        b = { bg = colors.focus, fg = colors.offWhite },
+    }
+    poimandres.command = {
+        a = { bg = colors.brightYellow, fg = colors.bg, gui = 'bold' },
+        b = { bg = colors.focus, fg = colors.offWhite },
+    }
+    poimandres.inactive = {
+        a = { bg = colors.focus, fg = colors.bluishGray, gui = 'bold' },
+        b = { bg = colors.focus, fg = colors.bluishGray },
+        c = { bg = colors.none, fg = colors.bluishGray },
+    }
+
+    if config.lualine_bold then
+        for _, mode in pairs(poimandres) do
+          mode.a.gui = "bold"
+        end
+      end
+
+return poimandres

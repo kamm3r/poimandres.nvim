@@ -1,3 +1,1 @@
-package.loaded['poimandres.palette'] = nil
-
-require('poimandres').colorscheme()
+require('lua.poimandres')._load()
