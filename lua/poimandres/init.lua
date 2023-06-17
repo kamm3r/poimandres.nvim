@@ -9,10 +9,10 @@ function M._load(style)
         M._style = require('poimandres.config').options.style
     end
     if not style and M._style then
-        require('poimandres.config').options.style =  M._style
+        require('poimandres.config').options.style = M._style
         M._style = nil
     end
-    M.load({style = style, use_background = style == nil})
+    M.load({ style = style, use_background = style == nil })
 end
 
 ---@param opts Config|nil
