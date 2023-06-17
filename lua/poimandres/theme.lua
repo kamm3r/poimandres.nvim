@@ -76,6 +76,7 @@ function M.setup()
 		SpellLocal = { sp = c.brightYellow, undercurl = true },
 		SpellRare = { sp = c.lowerBlue, undercurl = true },
 		SignColumn = { fg = c.offWhite, bg = c.none },
+		SignColumnSB = { bg = c.bg_sidebar, fg = c.darkerGray }, -- column where |signs| are displayed
 		StatusLine = { fg = c.desaturatedBlue, bg = c.bg_statusline }, -- status line of current window
 		StatusLineNC = { fg = c.desaturatedBlue, bg = c.bg_statusline }, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
 		TabLine = { fg = c.desaturatedBlue, bg = c.bluishGray },       -- tab pages line, not active tab page label
