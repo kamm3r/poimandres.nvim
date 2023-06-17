@@ -13,7 +13,7 @@ local M = {}
 
 ---@return Theme
 function M.setup()
-  local config = require("tokyonight.config")
+  local config = require("poimandres.config")
   local options = config.options
 
   ---@class Theme
