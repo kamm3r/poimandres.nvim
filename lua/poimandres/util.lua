@@ -19,7 +19,7 @@ local function parse_color(color)
 		return print('invalid color')
 	end
 
-	color = color:lower()
+	color = color.lower(color)
 
 	if not color:find('#') and color ~= 'none' then
 		color = require('poimandres.palette')[color]
