@@ -1,1 +1,3 @@
-require('poimandres')._load('storm')
+package.loaded['poimandres.palette'] = nil
+require('poimandres').colorscheme('storm')
+

@@ -1,196 +1,72 @@
-local ts = require("poimandres.treesitter")
+local util = {}
 
-local M = {}
-
-M.bg = "#000000"
-M.fg = "#ffffff"
-M.day_brightness = 0.3
-
----@param c  string
-local function hexToRgb(c)
-    c = string.lower(c)
-    return { tonumber(c:sub(2, 3), 16), tonumber(c:sub(4, 5), 16), tonumber(c:sub(6, 7), 16) }
+local function byte(value, offset)
+	return bit.band(bit.rshift(value, offset), 0xFF)
 end
 
+local function rgb(color)
+	color = vim.api.nvim_get_color_by_name(color)
 
----@param foreground string foreground color
----@param background string background color
----@param alpha number|string number between 0 and 1. 0 results in bg, 1 results in fg
-function M.blend(foreground, background, alpha)
-    alpha = type(alpha) == "string" and (tonumber(alpha, 16) / 0xff) or alpha
-    local bg = hexToRgb(background)
-    local fg = hexToRgb(foreground)
+	if color == -1 then
+		color = vim.opt.background:get() == 'dark' and 000 or 255255255
+	end
 
-    local blendChannel = function(i)
-        local ret = (alpha * fg[i] + ((1 - alpha) * bg[i]))
-
-        return math.floor(math.min(math.max(0, ret), 255) + 0.5)
-    end
-
-    return string.format("#%02x%02x%02x", blendChannel(1), blendChannel(2), blendChannel(3))
+	return { byte(color, 16), byte(color, 8), byte(color, 0) }
 end
 
-function M.darken(hex, amount, bg)
-    return M.blend(hex, bg or M.bg, amount)
+local function parse_color(color)
+	if color == nil then
+		return print('invalid color')
+	end
+
+	color = color:lower()
+
+	if not color:find('#') and color ~= 'none' then
+		color = require('poimandres.palette')[color]
+			or vim.api.nvim_get_color_by_name(color)
+	end
+
+	return color
 end
 
-function M.lighten(hex, amount, fg)
-    return M.blend(hex, fg or M.fg, amount)
-end
+---@param fg string foreground color
+---@param bg string background color
+---@param alpha number number between 0 (background) and 1 (foreground)
+util.blend = function(fg, bg, alpha)
+	local fg_rgb = rgb(parse_color(fg))
+	local bg_rgb = rgb(parse_color(bg))
 
-function M.invert_color(color)
-    local hsluv = require("poimandres.hsluv")
-    if color ~= "NONE" then
-        local hsl = hsluv.hex_to_hsluv(color)
-        hsl[3] = 100 - hsl[3]
-        if hsl[3] < 40 then
-            hsl[3] = hsl[3] + (100 - hsl[3]) * M.day_brightness
-        end
-        return hsluv.hsluv_to_hex(hsl)
-    end
-    return color
+	local function blend_channel(i)
+		local ret = (alpha * fg_rgb[i] + ((1 - alpha) * bg_rgb[i]))
+		return math.floor(math.min(math.max(0, ret), 255) + 0.5)
+	end
+
+	return string.format(
+		'#%02X%02X%02X',
+		blend_channel(1),
+		blend_channel(2),
+		blend_channel(3)
+	)
 end
 
 ---@param group string
-function M.highlight(group, hl)
-    group = ts.get(group)
-    if not group then
-        return
-    end
-    if hl.style then
-        if type(hl.style) == "table" then
-            hl = vim.tbl_extend("force", hl, hl.style)
-        elseif hl.style:lower() ~= "none" then
-            -- handle old string style definitions
-            for s in string.gmatch(hl.style, "([^,]+)") do
-                hl[s] = true
-            end
-        end
-        hl.style = nil
-    end
-    vim.api.nvim_set_hl(0, group, hl)
+---@param color table<string, any>
+util.highlight = function(group, color)
+	local fg = color.fg and parse_color(color.fg) or 'none'
+	local bg = color.bg and parse_color(color.bg) or 'none'
+	local sp = color.sp and parse_color(color.sp) or ''
+
+	if
+		color.blend ~= nil
+		and (color.blend >= 0 or color.blend <= 100)
+		and bg ~= nil
+	then
+		bg = util.blend(bg, parse_color('base') or '', color.blend / 100)
+	end
+
+	color = vim.tbl_extend('force', color, { fg = fg, bg = bg, sp = sp })
+	vim.api.nvim_set_hl(0, group, color)
 end
 
---- Delete the autocmds when the theme changes to something else
-function M.onColorScheme()
-    vim.cmd([[autocmd! Poimandres]])
-    vim.cmd([[augroup! Poimandres]])
-end
+return util
 
----@param config Config
-function M.autocmds(config)
-    vim.cmd([[augroup Poimandres]])
-    vim.cmd([[  autocmd!]])
-    vim.cmd([[  autocmd ColorSchemePre * lua require("poimandres.util").onColorScheme()]])
-
-    vim.cmd(
-        [[  autocmd FileType ]]
-        .. table.concat(config.sidebars, ",")
-        .. [[ setlocal winhighlight=Normal:NormalSB,SignColumn:SignColumnSB]]
-    )
-    if vim.tbl_contains(config.sidebars, "terminal") then
-        vim.cmd([[  autocmd TermOpen * setlocal winhighlight=Normal:NormalSB,SignColumn:SignColumnSB]])
-    end
-    vim.cmd([[augroup end]])
-end
-
--- Simple string interpolation.
---
--- Example template: "${name} is ${value}"
---
----@param str string template string
----@param table table key value pairs to replace in the string
-function M.template(str, table)
-    return (
-        str:gsub("($%b{})", function(w)
-            return vim.tbl_get(table, table.unpack(vim.split(w:sub(3, -2), ".", { plain = true }))) or w
-        end)
-        )
-end
-
-function M.syntax(syntax)
-    for group, colors in pairs(syntax) do
-        M.highlight(group, colors)
-    end
-end
-
----@param colors ColorScheme
-function M.terminal(colors)
-    vim.g.terminal_color_0 = colors.selection     -- black
-    vim.g.terminal_color_8 = colors.selection     -- bright black
-    vim.g.terminal_color_1 = colors.hotRed        -- red
-    vim.g.terminal_color_9 = colors.hotRed        -- bright red
-    vim.g.terminal_color_2 = colors.brightMint    -- green
-    vim.g.terminal_color_10 = colors.brightMint   -- bright green
-    vim.g.terminal_color_3 = colors.brightYellow  -- yellow
-    vim.g.terminal_color_11 = colors.brightYellow -- bright yellow
-    vim.g.terminal_color_4 = colors.lowerBlue     -- blue
-    vim.g.terminal_color_12 = colors.lightBlue    -- bright blue
-    vim.g.terminal_color_5 = colors.pink          -- magenta
-    vim.g.terminal_color_13 = colors.pink         -- bright magenta
-    vim.g.terminal_color_6 = colors.lowerBlue     -- cyan
-    vim.g.terminal_color_14 = colors.lightBlue    -- bright cyan
-    vim.g.terminal_color_7 = colors.white         -- white
-    vim.g.terminal_color_15 = colors.white        -- bright white
-end
-
----@param colors ColorScheme
-function M.invert_colors(colors)
-    if type(colors) == "string" then
-        ---@diagnostic disable-next-line: return-type-mismatch
-        return M.invert_color(colors)
-    end
-    for key, value in pairs(colors) do
-        colors[key] = M.invert_colors(value)
-    end
-    return colors
-end
-
----@param hls Highlights
-function M.invert_highlights(hls)
-    for _, hl in pairs(hls) do
-        if hl.fg then
-            hl.fg = M.invert_color(hl.fg)
-        end
-        if hl.bg then
-            hl.bg = M.invert_color(hl.bg)
-        end
-        if hl.sp then
-            hl.sp = M.invert_color(hl.sp)
-        end
-    end
-end
-
----@param theme Theme
-function M.load(theme)
-    -- only needed to clear when not the default colorscheme
-    if vim.g.colors_name then
-        vim.cmd("hi clear")
-    end
-
-    vim.o.termguicolors = true
-    vim.g.colors_name = "poimandres"
-
-    if ts.new_style() then
-        for group, colors in pairs(ts.defaults) do
-            if not theme.highlights[group] then
-                M.highlight(group, colors)
-            end
-        end
-    end
-
-    M.syntax(theme.highlights)
-
-    -- vim.api.nvim_set_hl_ns(M.ns)
-    if theme.config.terminal_colors then
-        M.terminal(theme.colors)
-    end
-
-    M.autocmds(theme.config)
-
-    vim.defer_fn(function()
-        M.syntax(theme.defer)
-    end, 100)
-end
-
-return M
