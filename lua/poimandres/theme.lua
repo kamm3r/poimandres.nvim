@@ -2,8 +2,8 @@ local M = {}
 
 ---@param options Options
 function M._load(options)
-	local h = require('rose-pine.util').highlight
-	local p = require('rose-pine.palette')
+	local h = require('poimandres.util').highlight
+	local p = require('poimandres.palette')
 
 	local groups = options.groups or {}
 	local maybe = {
