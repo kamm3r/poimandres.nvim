@@ -1,7 +1,10 @@
 local util = {}
 
+-- local function byte(value, offset)
+-- 	return bit.band(bit.rshift(value, offset), 0xFF)
+-- end
 local function byte(value, offset)
-	return bit.band(bit.rshift(value, offset), 0xFF)
+	return (value>>offset) & 0xFF
 end
 
 local function rgb(color)
