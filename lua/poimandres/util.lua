@@ -33,7 +33,6 @@ end
 ---@param bg string background color
 ---@param alpha number number between 0 (background) and 1 (foreground)
 util.blend = function(fg, bg, alpha)
-	alpha = type(alpha) == "string" and (tonumber(alpha, 16) / 0xff) or alpha
 	local fg_rgb = rgb(parse_color(fg))
 	local bg_rgb = rgb(parse_color(bg))
 
@@ -46,7 +45,7 @@ util.blend = function(fg, bg, alpha)
 end
 
 ---@param group string
----@param color table<string, any>
+---@param color table<string, string>
 util.highlight = function(group, color)
 	local fg = color.fg and parse_color(color.fg) or 'none'
 	local bg = color.bg and parse_color(color.bg) or 'none'
