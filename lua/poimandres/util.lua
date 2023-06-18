@@ -25,23 +25,22 @@ util.blend = function(fg, bg, alpha)
 end
 
 ---@param group string
-util.highlight = function(group, hl)
-	group = ts.get(group)
-	if not group then
-	  return
+---@param color table<string, any>
+util.highlight = function(group, color)
+	local fg = color.fg and hexToRgb(color.fg) or 'none'
+	local bg = color.bg and hexToRgb(color.bg) or 'none'
+	local sp = color.sp and hexToRgb(color.sp) or ''
+
+	if
+		color.blend ~= nil
+		and (color.blend >= 0 or color.blend <= 100)
+		and bg ~= nil
+	then
+		bg = util.blend(bg, hexToRgb('bg') or '', color.blend / 100)
 	end
-	if hl.style then
-	  if type(hl.style) == "table" then
-		hl = vim.tbl_extend("force", hl, hl.style)
-	  elseif hl.style:lower() ~= "none" then
-		-- handle old string style definitions
-		for s in string.gmatch(hl.style, "([^,]+)") do
-		  hl[s] = true
-		end
-	  end
-	  hl.style = nil
-	end
-	vim.api.nvim_set_hl(0, group, hl)
+
+	color = vim.tbl_extend('force', color, { fg = fg, bg = bg, sp = sp })
+	vim.api.nvim_set_hl(0, group, color)
 end
 
 return util
