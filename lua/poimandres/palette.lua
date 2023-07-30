@@ -1,8 +1,7 @@
-local options = require("poimandres.config").options
-
+--- palette variants
 
 local variants = {
-	main = {
+  main = { -- main palette
 		brightYellow = '#fffac2',
 		brightMint = '#5DE4c7',
 		lowerMint = '#5fb3a1',
@@ -70,9 +69,16 @@ local variants = {
 	}
 }
 
-if variants[options.variant] ~= nil then
-	return variants[options.variant]
-end
+local palette = {}
 
-return vim.o.background == 'light' and variants.white
-    or variants[options.dark_variant or 'main']
+
+palette = variants.main
+
+
+-- if vim.o.background == "light" then
+-- 	palette = variants.main
+-- else
+-- 	palette = variants[(vim.g.poimandres_variant == "storm" and "storm") or "main"]
+-- end
+
+return palette
