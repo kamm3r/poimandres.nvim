@@ -18,9 +18,9 @@ function M.get(config)
 
     theme = {
         -- Comment = { fg = c.comment, style = options.styles.comments }, -- any comment
-        ColorColumn = { bg = p.gray }, -- used for the columns set with 'colorcolumn'
-        Conceal = { bg = p.none }, -- placeholder characters substituted for concealed text (see 'conceallevel')
-        Cursor = { fg = p.gray }, -- character under the cursor
+        ColorColumn = { bg = p.gray },   -- used for the columns set with 'colorcolumn'
+        Conceal = { bg = p.none },       -- placeholder characters substituted for concealed text (see 'conceallevel')
+        Cursor = { fg = p.gray },        -- character under the cursor
         CursorColumn = { bg = p.focus }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
         -- lCursor = { fg = c.bg, bg = c.fg }, -- the character under the cursor when |language-mapping| is used (see 'guicursor')
         -- CursorIM= {}, -- like Cursor, but used when in IME mode |CursorIM|
@@ -28,20 +28,20 @@ function M.get(config)
         CursorLineNr = { fg = p.text },
         DarkenedPanel = { bg = groups.panel },
         DarkenedStatusline = { bg = groups.panel },
-        DiffAdd = { bg = groups.git_add, blend = 50 }, -- diff mode: Added line |diff.txt|
-        DiffChange = { bg = p.gray },                -- diff mode: Changed line |diff.txt|
+        DiffAdd = { bg = groups.git_add, blend = 50 },       -- diff mode: Added line |diff.txt|
+        DiffChange = { bg = p.gray },                        -- diff mode: Changed line |diff.txt|
         DiffDelete = { bg = groups.git_delete, blend = 50 }, -- diff mode: Deleted line |diff.txt|
-        DiffText = { bg = groups.git_text, blend = 50 }, -- diff mode: Changed text within a changed line |diff.txt|
+        DiffText = { bg = groups.git_text, blend = 50 },     -- diff mode: Changed text within a changed line |diff.txt|
         Directory = { fg = p.desaturatedBlue, bg = p.none }, -- directory names (and other special names in listings)
         -- EndOfBuffer= {},
-        ErrorMsg = { fg = p.hotRed, bold = true },   -- error messages on the command line
+        ErrorMsg = { fg = p.hotRed, bold = true },           -- error messages on the command line
         FloatBorder = { fg = groups.border },
         FloatTitle = { fg = p.darkerGray },
-        FoldColumn = { fg = p.darkerGray },         -- 'foldcolumn'
-        Folded = { fg = p.text, bg = groups.panel }, -- line used for closed folds
+        FoldColumn = { fg = p.darkerGray },                 -- 'foldcolumn'
+        Folded = { fg = p.text, bg = groups.panel },        -- line used for closed folds
         IncSearch = { fg = p.selection, bg = p.lightBlue }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
         CurSearch = { link = 'IncSearch' },
-        LineNr = { fg = p.bluishGray },             -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
+        LineNr = { fg = p.bluishGray },                     -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
         MatchParen = { bg = p.bluishGray, fg = p.selection },
         ModeMsg = { fg = p.desaturatedBlue },
         MoreMsg = { fg = p.desaturatedBlue },
@@ -68,10 +68,10 @@ function M.get(config)
         SpellLocal = { sp = p.brightYellow, undercurl = true },
         SpellRare = { sp = p.lowerBlue, undercurl = true },
         SignColumn = { fg = p.text, bg = p.none },
-        SignColumnSB = { fg = p.text, bg = p.none },                   -- column where |signs| are displayed
+        SignColumnSB = { fg = p.text, bg = p.none },                           -- column where |signs| are displayed
         StatusLine = { fg = p.desaturatedBlue, bg = styles.float_background }, -- status line of current window
-        StatusLineNC = { fg = p.desaturatedBlue, bg = styles.background }, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
-        TabLine = { fg = p.desaturatedBlue, bg = styles.float_background }, -- tab pages line, not active tab page label
+        StatusLineNC = { fg = p.desaturatedBlue, bg = styles.background },     -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
+        TabLine = { fg = p.desaturatedBlue, bg = styles.float_background },    -- tab pages line, not active tab page label
         StatusLineTerm = { link = 'StatusLine' },
         StatusLineTermNC = { link = 'StatusLineNC' },
         TabLineFill = { bg = styles.float_background },
@@ -90,42 +90,42 @@ function M.get(config)
         -- Uncomment and edit if you want more specific syntax highlighting.
 
         Bold = { bold = true },
-        Boolean = { fg = p.brightMint }, --  a boolean constant: TRUE, false
-        Character = { fg = p.hotRed }, --  a character constant: 'c, '\n'
-        Comment = { fg = p.gray }, -- (preferred) any special symbol
-        Conditional = { fg = p.gray }, --  if, then, else, endif, switch, etc.
-        Constant = { fg = p.text }, -- (preferred) any constant
+        Boolean = { fg = p.lowerBlue },    --  a boolean constant: TRUE, false
+        Character = { fg = p.brightMint }, --  a character constant: 'c, '\n'
+        Comment = { fg = p.gray },         -- (preferred) any special symbol
+        Conditional = { fg = p.gray },     --  if, then, else, endif, switch, etc.
+        Constant = { fg = p.gray },        -- (preferred) any constant
         -- Debug= { }, --    debugging statements
         -- Define,        = { }, --   preprocessor #define
-        Delimiter = { fg = p.gray },    --  character that needs attention
-        Error = { fg = p.hotRed },      -- (preferred) any erroneous construct
-        Exception = { fg = p.desaturatedBlue }, --  try, catch, throw
-        Float = { fg = p.brightMint },  --    a floating point constant: 2.3e10
+        Delimiter = { fg = p.gray },     --  character that needs attention
+        Error = { fg = p.hotRed },       -- (preferred) any erroneous construct
+        Exception = { fg = p.hotRed },   --  try, catch, throw
+        Float = { fg = p.brightMint },   --    a floating point constant: 2.3e10
         Function = { fg = p.lightBlue }, -- function name (also: methods for classes)
-        Identifier = { fg = p.gray },   -- (preferred) any variable name
+        Identifier = { fg = p.gray },    -- (preferred) any variable name
         -- Ignore= { }, -- (preferred) left blank, hidden  |hl-Ignore|
-        Include = { fg = p.gray },      --  preprocessor #include
-        Keyword = { fg = p.desaturatedBlue }, --  any other keyword
-        Label = { fg = p.text },        --    case, default, etc.
+        Include = { fg = p.gray },       --  preprocessor #include
+        Keyword = { fg = p.gray },       --  any other keyword
+        Label = { fg = p.text },         --    case, default, etc.
         Italic = { italic = true },
         -- Macro,         = { }, --    same as Define
-        Number = { fg = p.brightMint },           --   a number constant: 234, 0xff
-        Operator = { fg = p.lightBlue },          -- "sizeof", "+", "*", etc.
+        Number = { fg = p.lowerMint },                    --   a number constant: 234, 0xff
+        Operator = { fg = p.gray },                       -- "sizeof", "+", "*", etc.
         -- PreCondit,     = { }, --  preprocessor #if, #else, #endif, etc.
-        PreProc = { fg = p.text },                -- (preferred) generic Preprocessor
-        Repeat = { fg = p.desaturatedBlue },      --   for, do, while, etc.
-        Special = { fg = p.darkerGray },          -- (preferred) any special symbol
+        PreProc = { fg = p.text },                        -- (preferred) generic Preprocessor
+        Repeat = { fg = p.desaturatedBlue },              --   for, do, while, etc.
+        Special = { fg = p.darkerGray },                  -- (preferred) any special symbol
         -- SpecialChar= { }, --  special character in a constant
-        SpecialComment = { fg = p.gray },         -- special things inside a comment
-        Statement = { fg = p.text },              -- (preferred) any statement
+        SpecialComment = { fg = p.gray },                 -- special things inside a comment
+        Statement = { fg = p.text },                      -- (preferred) any statement
         -- StorageClass= { }, -- static, register, volatile, etc.
-        String = { fg = p.brightMint },           --   a string constant: "this is a string"
-        Structure = { fg = p.gray },              --  struct, union, enum, etc. ]]
-        Tag = { fg = p.text },                    --    you can use CTRL-] on this
+        String = { fg = p.brightMint },                   --   a string constant: "this is a string"
+        Structure = { fg = p.gray },                      --  struct, union, enum, etc. ]]
+        Tag = { fg = p.text },                            --    you can use CTRL-] on this
         Todo = { bg = p.brightYellow, fg = p.selection }, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
-        Type = { fg = p.gray },                   -- (preferred) int, long, char, etc.
-        Typedef = { link = 'Type' },              --  A typedef
-        Underlined = { underline = true },        -- (preferred) text that stands out, HTML links
+        Type = { fg = p.gray },                           -- (preferred) int, long, char, etc.
+        Typedef = { link = 'Type' },                      --  A typedef
+        Underlined = { underline = true },                -- (preferred) text that stands out, HTML links
         htmlH1 = { fg = groups.headings.h1, bold = true },
         htmlH2 = { fg = groups.headings.h2, bold = true },
         htmlH3 = { fg = groups.headings.h3, bold = true },
@@ -148,33 +148,33 @@ function M.get(config)
         -- These groups are for the native LSP client. Some other LSP clients may
         -- use these groups, or use their own. Consult your LSP client's
         -- documentation.
-        LspReferenceText = { bg = p.lightBlue }, -- used for highlighting "text" references
-        LspReferenceRead = { bg = p.lightBlue }, -- used for highlighting "read" references
+        LspReferenceText = { bg = p.lightBlue },  -- used for highlighting "text" references
+        LspReferenceRead = { bg = p.lightBlue },  -- used for highlighting "read" references
         LspReferenceWrite = { bg = p.lightBlue }, -- used for highlighting "write" references
-        DiagnosticError = { fg = groups.error }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default
-        DiagnosticHint = { fg = groups.hint }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default
-        DiagnosticInfo = { fg = groups.info }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default
-        DiagnosticWarn = { fg = groups.warn }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default
+        DiagnosticError = { fg = groups.error },  -- Used as the base highlight group. Other Diagnostic highlights link to this by default
+        DiagnosticHint = { fg = groups.hint },    -- Used as the base highlight group. Other Diagnostic highlights link to this by default
+        DiagnosticInfo = { fg = groups.info },    -- Used as the base highlight group. Other Diagnostic highlights link to this by default
+        DiagnosticWarn = { fg = groups.warn },    -- Used as the base highlight group. Other Diagnostic highlights link to this by default
         -- DiagnosticUnnecessary = { fg = c.black }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default
 
         DiagnosticUnderlineError = { sp = groups.error, undercurl = true }, -- Used to underline "Error" diagnostics
-        DiagnosticUnderlineHint = { sp = groups.hint, undercurl = true }, -- Used to underline "Hint" diagnostics
-        DiagnosticUnderlineInfo = { sp = groups.info, undercurl = true }, -- Used to underline "Information" diagnostics
-        DiagnosticUnderlineWarn = { sp = groups.warn, undercurl = true }, -- Used to underline "Warning" diagnostics
-        DiagnosticVirtualTextError = { fg = groups.error },         -- Used for "Error" diagnostic virtual text
-        DiagnosticVirtualTextHint = { fg = groups.hint },           -- Used for "Hint" diagnostic virtual text
-        DiagnosticVirtualTextInfo = { fg = groups.info },           -- Used for "Information" diagnostic virtual text
-        DiagnosticVirtualTextWarn = { fg = groups.warn },           -- Used for "Warning" diagnostic virtual text
+        DiagnosticUnderlineHint = { sp = groups.hint, undercurl = true },   -- Used to underline "Hint" diagnostics
+        DiagnosticUnderlineInfo = { sp = groups.info, undercurl = true },   -- Used to underline "Information" diagnostics
+        DiagnosticUnderlineWarn = { sp = groups.warn, undercurl = true },   -- Used to underline "Warning" diagnostics
+        DiagnosticVirtualTextError = { fg = groups.error },                 -- Used for "Error" diagnostic virtual text
+        DiagnosticVirtualTextHint = { fg = groups.hint },                   -- Used for "Hint" diagnostic virtual text
+        DiagnosticVirtualTextInfo = { fg = groups.info },                   -- Used for "Information" diagnostic virtual text
+        DiagnosticVirtualTextWarn = { fg = groups.warn },                   -- Used for "Warning" diagnostic virtual text
         LspSignatureActiveParameter = { bg = p.gray },
         -- lsp-highlight-codelens
-        LspCodeLens = { fg = p.gray },        -- virtual text of code lens
+        LspCodeLens = { fg = p.gray },                -- virtual text of code lens
         LspCodeLensSeparator = { fg = p.bluishGray }, -- separator between two or more code lens
 
         -- Treesitter
         ['@boolean'] = { link = 'Boolean' },
         ['@character'] = { link = 'Character' },
         ['@character.special'] = { link = '@character' },
-        ['@class'] = { fg = p.lightBlue },
+        ['@class'] = { fg = p.brightMint },
         ['@comment'] = { link = 'Comment' },
         ['@conditional'] = { link = 'Conditional' },
         ['@constant'] = { link = 'Constant' },
@@ -234,8 +234,8 @@ function M.get(config)
         ['@variable.builtin'] = { fg = p.lightBlue },
         ['@namespace'] = { link = '@include' },
         -- tsx
-        ['@tag.tsx'] = { fg = p.offWhite },
-        ['@constructor.tsx'] = { fg = p.brightMint },
+        ['@tag.tsx'] = { fg = p.brightMint },
+        ['@constructor.tsx'] = { fg = p.desaturatedBlue },
         ['@tag.delimiter.tsx'] = { fg = p.gray },
         -- LSP Semantic Token Groups
         ['@lsc.type.boolean'] = { link = "@boolean" },
@@ -334,7 +334,7 @@ function M.get(config)
         NeotestTarget = { fg = p.lowerMint },
         --[[ NeotestUnknown = {}, ]]
         -- GitGutter
-        GitGutterAdd = { fg = groups.git_add }, -- diff mode: Added line |diff.txt|
+        GitGutterAdd = { fg = groups.git_add },       -- diff mode: Added line |diff.txt|
         GitGutterChange = { fg = groups.git_change }, -- diff mode: Changed line |diff.txt|
         GitGutterDelete = { fg = groups.git_delete }, -- diff mode: Deleted line |diff.txt|
         GitGutterAddLineNr = { fg = groups.git_add },
@@ -600,22 +600,22 @@ function M.get(config)
         Hlargs = { fg = p.brightYellow },
         -- TreesitterContext = { bg = util.darken(c.bg_visual, 0.4) },
     }
-    vim.g.terminal_color_0 = p.selection  -- black
-    vim.g.terminal_color_8 = p.selection  -- bright black
-    vim.g.terminal_color_1 = p.hotRed     -- red
-    vim.g.terminal_color_9 = p.hotRed     -- bright red
-    vim.g.terminal_color_2 = p.brightMint -- green
-    vim.g.terminal_color_10 = p.brightMint -- bright green
-    vim.g.terminal_color_3 = p.brightYellow -- yellow
+    vim.g.terminal_color_0 = p.selection     -- black
+    vim.g.terminal_color_8 = p.selection     -- bright black
+    vim.g.terminal_color_1 = p.hotRed        -- red
+    vim.g.terminal_color_9 = p.hotRed        -- bright red
+    vim.g.terminal_color_2 = p.brightMint    -- green
+    vim.g.terminal_color_10 = p.brightMint   -- bright green
+    vim.g.terminal_color_3 = p.brightYellow  -- yellow
     vim.g.terminal_color_11 = p.brightYellow -- bright yellow
-    vim.g.terminal_color_4 = p.lowerBlue  -- blue
-    vim.g.terminal_color_12 = p.lightBlue -- bright blue
-    vim.g.terminal_color_5 = p.pink       -- magenta
-    vim.g.terminal_color_13 = p.pink      -- bright magenta
-    vim.g.terminal_color_6 = p.lowerBlue  -- cyan
-    vim.g.terminal_color_14 = p.lightBlue -- bright cyan
-    vim.g.terminal_color_7 = p.white      -- white
-    vim.g.terminal_color_15 = p.white     -- bright white
+    vim.g.terminal_color_4 = p.lowerBlue     -- blue
+    vim.g.terminal_color_12 = p.lightBlue    -- bright blue
+    vim.g.terminal_color_5 = p.pink          -- magenta
+    vim.g.terminal_color_13 = p.pink         -- bright magenta
+    vim.g.terminal_color_6 = p.lowerBlue     -- cyan
+    vim.g.terminal_color_14 = p.lightBlue    -- bright cyan
+    vim.g.terminal_color_7 = p.white         -- white
+    vim.g.terminal_color_15 = p.white        -- bright white
 
     return theme
 end
