@@ -30,7 +30,7 @@ function M.get(config)
 	DarkenedStatusline= { bg = groups.panel },
 	DiffAdd= { bg = groups.git_add, blend = 50 },    -- diff mode: Added line |diff.txt|
 	DiffChange= { bg = p.gray },                    -- diff mode: Changed line |diff.txt|
-	DiffDelete= { bg = groups.git_delete, blend = 50 } -- diff mode: Deleted line |diff.txt|
+	DiffDelete= { bg = groups.git_delete, blend = 50 }, -- diff mode: Deleted line |diff.txt|
 	DiffText= { bg = groups.git_text, blend = 50 },  -- diff mode: Changed text within a changed line |diff.txt|
 	Directory= { fg = p.desaturatedBlue, bg = p.none }, -- directory names (and other special names in listings)
 	-- EndOfBuffer= {},
@@ -46,21 +46,21 @@ function M.get(config)
 	ModeMsg= { fg = p.desaturatedBlue },
 	MoreMsg= { fg = p.desaturatedBlue },
 	NonText= { fg = p.bluishGrayBrighter },
-	Normal= { fg = p.text, bg = maybe.base },
-	NormalNC= { fg = p.text, bg = maybe.dim_nc_background },
-	NormalSB= { fg = p.text, bg = maybe.dim_nc_background }, -- normal text in sidebar
-	NormalFloat= { fg = p.text, bg = maybe.surface },
-	NvimInternalError= { fg = '#ffffff, bg = p.hotRed },
-	Pmenu= { fg = p.gray, bg = maybe.surface }, -- Popup menu: normal item.
+	Normal= { fg = p.text, bg = styles.background },
+	NormalNC= { fg = p.text, bg = styles.nc_background },
+	NormalSB= { fg = p.text, bg = styles.nc_background }, -- normal text in sidebar
+	NormalFloat= { fg = p.text, bg = styles.float_background },
+	NvimInternalError= { fg = '#ffffff', bg = p.hotRed },
+	Pmenu= { fg = p.gray, bg = styles.float_background }, -- Popup menu: normal item.
 	PmenuSbar= { bg = p.darkerGray },
 	PmenuSel= { fg = p.text, bg = p.focus },
 	PmenuThumb= { bg = p.bluishGray },
 	Question= { fg = p.brightYellow },
 	-- QuickFixLine= {},
 	-- RedrawDebugNormal= {},
-	RedrawDebugClear= { fg = '#ffffff, bg = p.brightYellow },
-	RedrawDebugComposed= { fg = '#ffffff, bg = p.lowerMint },
-	RedrawDebugRecompose= { fg = '#ffffff, bg = p.hotRed },
+	RedrawDebugClear= { fg = '#ffffff', bg = p.brightYellow },
+	RedrawDebugComposed= { fg = '#ffffff', bg = p.lowerMint },
+	RedrawDebugRecompose= { fg = '#ffffff', bg = p.hotRed },
 	Search= { bg = p.bluishGray },
 	SpecialKey= { fg = p.brightMint },
 	SpellBad= { sp = p.hotRed, undercurl = true },
@@ -69,15 +69,15 @@ function M.get(config)
 	SpellRare= { sp = p.lowerBlue, undercurl = true },
 	SignColumn= { fg = p.text, bg = p.none },
 	SignColumnSB= { fg = p.text, bg = p.none },              -- column where |signs| are displayed
-	StatusLine= { fg = p.desaturatedBlue, bg = maybe.surface }, -- status line of current window
-	StatusLineNC= { fg = p.desaturatedBlue, bg = maybe.base }, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
-	TabLine= { fg = p.desaturatedBlue, bg = maybe.surface }, -- tab pages line, not active tab page label
+	StatusLine= { fg = p.desaturatedBlue, bg = styles.float_background }, -- status line of current window
+	StatusLineNC= { fg = p.desaturatedBlue, bg = styles.background }, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
+	TabLine= { fg = p.desaturatedBlue, bg = styles.float_background }, -- tab pages line, not active tab page label
 	StatusLineTerm= { link = 'StatusLine' },
 	StatusLineTermNC= { link = 'StatusLineNC' },
-	TabLineFill= { bg = maybe.surface },
+	TabLineFill= { bg = styles.float_background },
 	TabLineSel= { fg = p.text, bg = p.focus },
 	Title= { fg = p.text },
-	VertSplit= { fg = groups.border, bg = maybe.bold_vert_split },
+	VertSplit= { fg = groups.border, bg = styles.vert_split },
 	Visual= { bg = p.bluishGray },
 	-- VisualNOS= {},
 	WarningMsg= { fg = p.brightYellow },
@@ -173,7 +173,7 @@ function M.get(config)
 	-- Treesitter
 	['@boolean']= { link = 'Boolean' },
 	['@character']= { link = 'Character' },
-	['@character.special']= { link = '['@character' },
+	['@character.special']= { link = '@character' },
 	['@class']= { fg = p.lightBlue },
 	['@comment']= { link = 'Comment' },
 	['@conditional']= { link = 'Conditional' },
@@ -185,7 +185,7 @@ function M.get(config)
 	['@field']= { fg = p.text },
 	['@function']= { link = 'Function' },
 	['@function.builtin']= { fg = p.lightBlue },
-	['@function.macro']= { link = '['@function' },
+	['@function.macro']= { link = '@function' },
 	['@function.call']= { fg = p.gray },
 	['@include']= { link = 'Include' },
 	['@interface']= { fg = p.lightBlue },
@@ -210,7 +210,7 @@ function M.get(config)
 	['@storageclass']= { link = 'StorageClass' },
 	['@string']= { link = 'String' },
 	['@string.escape']= { fg = p.hotRed },
-	['@string.special']= { link = '['@string' },
+	['@string.special']= { link = '@string' },
 	['@symbol']= { link = 'Identifier' },
 	['@tag']= { link = 'Tag' },
 	['@tag.attribute']= { fg = p.desaturatedBlue, italic = true },
@@ -232,7 +232,7 @@ function M.get(config)
 	['@type']= { link = 'Type' },
 	['@variable']= { fg = p.text },
 	['@variable.builtin']= { fg = p.lightBlue },
-	['@namespace']= { link = '['@include' },
+	['@namespace']= { link = '@include' },
 	-- tsx
 	['@tag.tsx']= { fg = p.offWhite },
 	['@constructor.tsx']= { fg = p.brightMint },
