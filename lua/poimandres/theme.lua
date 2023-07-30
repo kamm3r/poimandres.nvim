@@ -1,6 +1,5 @@
 local blend = require('poimandres.util').blend
 
-
 local M = {}
 
 function M.get(config)
@@ -9,8 +8,7 @@ function M.get(config)
   local theme = {}
   local groups = config.groups or {}
   local styles = {
-    italic = (config.disable_italics and p.none) or 'italic,
-
+    italic = (config.disable_italics and p.none) or 'italic',
     vert_split = (config.bold_vert_split and groups.border) or p.none,
     background = (config.disable_background and p.none) or groups.background,
     float_background = (config.disable_float_background and p.none) or groups.panel,
@@ -19,7 +17,6 @@ function M.get(config)
     or styles.background
 
   theme = {
-
 	-- Comment = { fg = c.comment, style = options.styles.comments }, -- any comment
 	ColorColumn= { bg = p.gray }, -- used for the columns set with 'colorcolumn'
     Conceal= { bg = p.none },     -- placeholder characters substituted for concealed text (see 'conceallevel')
@@ -279,7 +276,7 @@ function M.get(config)
 	rainbowcol1= { fg = p.lowerBlue },
 	rainbowcol2= { fg = p.brightMint },
 	rainbowcol3= { fg = p.brightYellow },
-	rainbowcol4= { fg = p.lightBlue },
+	trainbowcol4= { fg = p.lightBlue },
 	rainbowcol5= { fg = p.lowerMint },
 	rainbowcol6= { fg = p.hotRed },
 	rainbowcol7= { fg = p.desaturatedBlue },
